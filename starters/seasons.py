@@ -3,4 +3,5 @@
 lastname = input("What is Your Name?")
 season = input("What is your Favorite Season?")
 
+# prints an output saying they like that season to
 print(f"Wow, {lastname} san, I like {season} too!")
