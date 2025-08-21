@@ -1,4 +1,4 @@
-#WG Seasons
+#WG 1st Seasons
 #asks for last name and favorite season
 lastname = input("What is Your Last Name?")
 season = input("What is your Favorite Season?")
