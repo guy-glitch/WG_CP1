@@ -1,6 +1,6 @@
 #WG Seasons
 #asks for last name and favorite season
-lastname = input("What is Your Name?")
+lastname = input("What is Your Last Name?")
 season = input("What is your Favorite Season?")
 
 # prints an output saying they like that season to
