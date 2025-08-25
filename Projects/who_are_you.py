@@ -1,3 +1,4 @@
+#WG_1st_Who_Are_You
 import sys
 run = input("Would you like to run y/n")
 while run == "y":
@@ -7,6 +8,5 @@ while run == "y":
     print(f"So your name is {name}, you are {age} years old, and your favorite color is {color}")
     run = input("Would you like to run again y/n")
 if run == "n":
-    print("Terminating code")
-    sys.exit
+    print("Terminating")
 
