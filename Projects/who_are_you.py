@@ -7,6 +7,6 @@ while run == "y":
     color = input("What is your favorite color")
     print(f"So your name is {name}, you are {age} years old, and your favorite color is {color}")
     run = input("Would you like to run again y/n")
+
 if run == "n":
     print("Terminating")
-
