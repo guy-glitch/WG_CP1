@@ -1,0 +1,10 @@
+#WG_average_grade
+first=float(input("What is your grade in your first class"))
+second=float(input("What is your grade in your second class"))
+third=float(input("what is your grade in your third class"))
+advisory=float(input("What is your grade in advisory"))
+sixth=float(input("What is your grade in your sixth class"))
+seventh=float(input("What is your grade in your seventh class"))
+eighth=float(input("What is your grade in your eighth class"))
+average_grade=round(((first+second+third+advisory+sixth+seventh+eighth)/7),2)
+print(f"Your average grade is {average_grade}%")
