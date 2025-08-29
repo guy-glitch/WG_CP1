@@ -16,6 +16,7 @@ if name == "Ms. LaRose":
 if name == "Warren":
     if password_new == password_warren:
         name = name.capitalize()
+        print(f"Hello World")
 # asks for name and if it is an admin does not auto capitilize other wise it capitilzes
 if name == "Ms. LaRose":
     name = name
