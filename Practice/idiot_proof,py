@@ -1,0 +1,11 @@
+#WG_Idiot_Proof
+name = input("What is your first name").strip().title
+phone = input("What is your phone number").strip
+
+
+
+
+
+
+
+
