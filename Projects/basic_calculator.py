@@ -2,14 +2,14 @@
 running = True
 
 while running:
-    run =input("would you like to run again?").lower().strip()
+    run =input("would you like to run?").lower().strip()
     if run == "no":
         running = False
     else:
        first_number = int(input("What is the first number in the equation?").strip())
        second_number = int(input("What is the second number in the equation?").strip())
        addition = (first_number + second_number)
-       division = (first_number/second_number )
+       division = (first_number/second_number)
        subtraction = (first_number-second_number)
        multiplication = (first_number*second_number)
        exponents = (first_number**second_number)
