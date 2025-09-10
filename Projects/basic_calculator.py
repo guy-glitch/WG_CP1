@@ -17,10 +17,10 @@ while running:
        integer_division = (first_number//second_number)
        #prints the answers to the equations
        print(f"{first_number} + {second_number} = {addition}")
-        print(f"{first_number} - {second_number} = {subtraction}")
-        print(f"{first_number} * {second_number} = {multiplication}")
-        print(f"{first_number} / {second_number} = {division}")
-        print(f"{first_number} ** {second_number} = {exponents}")
-        print(f"{first_number} % {second_number} = {modulo}")
-        print(f"{first_number} // {second_number} = {integer_division}")
+       print(f"{first_number} - {second_number} = {subtraction}")
+       print(f"{first_number} * {second_number} = {multiplication}")
+       print(f"{first_number} / {second_number} = {division}")
+       print(f"{first_number} ** {second_number} = {exponents}")
+       print(f"{first_number} % {second_number} = {modulo}")
+       print(f"{first_number} // {second_number} = {integer_division}")
 
