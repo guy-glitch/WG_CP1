@@ -1,9 +1,9 @@
 #WG_1st_Crew_Shares
 print("You are a pirate captain, tell me how many crew members there are and how much money you made.")
 
-crew_member = int(input("How many crew members are there?"))
+crew_member = int(input("How many crew members are there?").strip())
 
-money_made = float(input("How much money did you make?"))
+money_made = float(input("How much money did you make?").strip())
 
 shares = float(money_made/(crew_member+10))
 
