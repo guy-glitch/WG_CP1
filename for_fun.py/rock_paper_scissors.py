@@ -14,10 +14,10 @@ while run == "Y":
             if com_choice == 1:
                 print(f"Scissors")
                 print("You win")
-            if com_choice == 1:
+            if com_choice == 2:
                 print(f"Rock")
                 print("We tie")
-            if com_choice == 1:
+            if com_choice == 3:
                 print(f"Paper")
                 print("You lose")
             else:
@@ -26,10 +26,10 @@ while run == "Y":
             if com_choice == 1:
                 print(f"Scissors")
                 print("You lose")
-            if com_choice == 1:
+            if com_choice == 2:
                 print(f"Rock")
                 print("You win")
-            if com_choice == 1:
+            if com_choice == 3:
                 print(f"Paper")
                 print("We tie")
             else:
@@ -38,10 +38,10 @@ while run == "Y":
             if com_choice == 1:
                 print(f"Scissors")
                 print("We tie")
-            if com_choice == 1:
+            if com_choice == 2:
                 print(f"Rock")
                 print("You lose")
-            if com_choice == 1:
+            if com_choice == 3:
                 print(f"Paper")
                 print("You win")
             else:
