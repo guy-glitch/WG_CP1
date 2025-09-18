@@ -17,11 +17,13 @@ while run == "Y":
                 print("You win")
                 win += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
+                run = input("Do you want to play again.")
             if com_choice == 2:
                 print(f"Rock")
                 print("We tie")
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
+                run = input("Do you want to play again.")
             if com_choice == 3:
                 print(f"Paper")
                 print("You lose")
@@ -33,30 +35,39 @@ while run == "Y":
                 print(f"Scissors")
                 print("You lose")
                 lose += 1
+                print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
+                run = input("Do you want to play again.")
             if com_choice == 2:
                 print(f"Rock")
                 print("You win")
                 win += 1
+                print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
+                run = input("Do you want to play again.")
             if com_choice == 3:
                 print(f"Paper")
                 print("We tie")
                 tie += 1
-            else:
+                print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
                 run = input("Do you want to play again.")
         if player == "scissors":
             if com_choice == 1:
                 print(f"Scissors")
                 print("We tie")
                 tie += 1
+                print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
+                run = input("Do you want to play again.")
             if com_choice == 2:
                 print(f"Rock")
                 print("You lose")
                 lose += 1
+                print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
+                run = input("Do you want to play again.")
             if com_choice == 3:
                 print(f"Paper")
                 print("You win")
                 win += 1
-            else:
+                print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
                 run = input("Do you want to play again.")
         else:
             print("Incorect input please try again")
+            run = input("Do you want to play again.")
