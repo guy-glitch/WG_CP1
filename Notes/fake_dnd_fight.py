@@ -30,7 +30,10 @@ elif hit_roll == 1:
 elif hit_roll + player_attack >= 12:
     print("You hit")
     damage_roll = random.randint(1,8) + player_damage
-    print(f"You did {damage_roll} damage")
+    if damage_roll > monster_defense:
+        damage_roll -= monster_defense
+        print(f"You did {damage_roll} damage")
+
 else:
     print("You missed. Failure")
 print("Your turn is over")
