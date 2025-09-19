@@ -8,7 +8,7 @@ while run == "Y":
     if play == "no":
         print("See Ya")
         run = "N"
-    else:
+    if play == "yes":
         com_choice = random.randint(1,3)
         player = input("Rock, Paper, Scissors, Shoot").strip().lower()
         if player == "rock":
@@ -17,57 +17,63 @@ while run == "Y":
                 print("You win")
                 win += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
+                run = input("Do you want to play again.").strip().lower()
             if com_choice == 2:
                 print(f"Rock")
                 print("We tie")
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
+                run = input("Do you want to play again.").strip().lower()
             if com_choice == 3:
                 print(f"Paper")
                 print("You lose")
                 lose += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
+                run = input("Do you want to play again.").strip().lower()
         if player == "paper":
             if com_choice == 1:
                 print(f"Scissors")
                 print("You lose")
                 lose += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
+                run = input("Do you want to play again.").strip().lower()
             if com_choice == 2:
                 print(f"Rock")
                 print("You win")
                 win += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
+                run = input("Do you want to play again.").strip().lower()
             if com_choice == 3:
                 print(f"Paper")
                 print("We tie")
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
+                run = input("Do you want to play again.").strip().lower()
         if player == "scissors":
             if com_choice == 1:
                 print(f"Scissors")
                 print("We tie")
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
+                run = input("Do you want to play again.").strip().lower()
             if com_choice == 2:
                 print(f"Rock")
                 print("You lose")
                 lose += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
+                run = input("Do you want to play again.").strip().lower()
+            else:
+                print("Incorect input please try again")
+                play = input("Do you want to play again.")
             if com_choice == 3:
                 print(f"Paper")
                 print("You win")
                 win += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.")
-        else:
+                run = input("Do you want to play again.").strip().lower()
+            else:
+                print("Incorect input please try again")
+                play = input("Do you want to play again.")
+    else:
             print("Incorect input please try again")
-            run = input("Do you want to play again.")
+            play = input("Do you want to play again.")
