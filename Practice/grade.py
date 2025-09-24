@@ -4,7 +4,7 @@ if grade > 92:
     print(f"You have an A, at {grade}%, great job")
 elif grade > 90 and grade < 92:
     print(f"You have an A-, at {grade}%, good job")
-elif grade > 87 and grade < 90:
+elif grade >= 87 and grade < 90:
     print(f"You have an B+, at {grade}%, good job")
 elif grade >= 82 and grade < 87:
     print(f"You have an B, at {grade}%, good job you could improve")
