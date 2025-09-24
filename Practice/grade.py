@@ -17,12 +17,12 @@ elif grade > 72 and grade < 77:
 elif grade > 70 and grade < 72:
     print(f"You have an C-, at {grade}%, have a slightly better life and maybe you will pass")
 elif grade > 67 and grade < 70:
-    print(f"You have an D+, at {grade}%, Fix this or get debt.")
+    print(f"You have an D+, at {grade}%, If I wanted to parachute all I would have to do is climb up your ego and skydive down to your IQ level")
 elif grade > 64 and grade < 67:
     print(f"You have an D, at {grade}%, you need to get help to fix this")
 elif grade > 55 and grade < 64:
     print(f"You have an D-, at {grade}%, stop being a failure and get some help")
 elif grade < 55:
-    print(f"You have an F, at {grade}%, stop being a failure and get some help. You must have scored low on the gene pool")
+    print(f"You have an F, at {grade}%, I can't even tell you I am 10 times your IQ level because 10 times 0 is still zero.")
 else:
     print(f"Incorrect input get better, you must have scored really low on the gene pool")
