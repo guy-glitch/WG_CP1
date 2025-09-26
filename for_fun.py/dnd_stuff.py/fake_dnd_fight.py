@@ -1,4 +1,4 @@
-# WG 1st Conditioinals Notes
+# WG 1st fake dnd fight
 import random
 player_hp = 20
 player_attack = 2
