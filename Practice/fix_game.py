@@ -23,7 +23,7 @@ def start_game():
             print("Too low! Try again.")
             attempts += 1  
         #The continue was redundant This is a logical error.
-        #There wasn't an else to catch everything that failed. This is a syntax error 
+        #There wasn't an else to catch everything that failed. This is a logical error
         else:
             print("Incorrect input try again")
     print("Game Over. Thanks for playing!")
