@@ -1,6 +1,6 @@
 #WG 1st Multiplication table
 nums = [1,2,3,4,5,6,7,8,9,10,11,12]
-for num in nums:
-    print(f"{num*1} {num*2} {num*3} {num*4} {num*5} {num*6} {num*7} {num*8} {num*9} {num*10} {num*11} {num*12}")
+for i in nums:
+    print(f"{i*1} {i*2} {i*3} {i*4} {i*5} {i*6} {i*7} {i*8} {i*9} {i*10} {i*11} {i*12}")
 
 print("This is a multiplication 12 by 12")
