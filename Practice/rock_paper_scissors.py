@@ -24,13 +24,13 @@ while run == "Y":
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
                 run = input("Do you want to play again. ").strip().lower()
-            if com_choice == 3:
+            else:
                 print(f"Paper")
                 print("You lose")
                 lose += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
                 run = input("Do you want to play again. ").strip().lower()
-        if player == "paper":
+        elif player == "paper":
             if com_choice == 1:
                 print(f"Scissors")
                 print("You lose")
@@ -49,7 +49,7 @@ while run == "Y":
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
                 run = input("Do you want to play again. ").strip().lower()
-        if player == "scissors":
+        elif player == "scissors":
             if com_choice == 1:
                 print(f"Scissors")
                 print("We tie")
@@ -69,6 +69,9 @@ while run == "Y":
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
                 run = input("Do you want to play again.").strip().lower()
 
+        else:
+            print("Incorect input please try again")
+            play = input("Do you want to play again.")
     else:
             print("Incorect input please try again")
             play = input("Do you want to play again.")
