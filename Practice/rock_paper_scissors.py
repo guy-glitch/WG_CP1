@@ -1,5 +1,5 @@
 import random
-run = "Y"
+choice = ["rock", "paper", "scissors"]
 play = input("Do you want to play rock paper scissors? Yes or No ").strip().lower()
 win = 0
 tie = 0
@@ -13,21 +13,21 @@ while play == "yes":
                 print("You win")
                 win += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.").strip().lower()
+                play = input("Do you want to play again.").strip().lower()
                 continue
             elif com_choice == 2:
                 print(f"Rock")
                 print("We tie")
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again. ").strip().lower()
+                play = input("Do you want to play again. ").strip().lower()
                 continue
             else:
                 print(f"Paper")
                 print("You lose")
                 lose += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again. ").strip().lower()
+                play = input("Do you want to play again. ").strip().lower()
                 continue
         elif player == "paper":
             if com_choice == 1:
@@ -35,43 +35,43 @@ while play == "yes":
                 print("You lose")
                 lose += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again. ").strip().lower()
+                play = input("Do you want to play again. ").strip().lower()
                 continue
             elif com_choice == 2:
                 print(f"Rock")
                 print("You win")
                 win += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.").strip().lower()
+                play = input("Do you want to play again.").strip().lower()
                 continue
             else:
                 print(f"Paper")
                 print("We tie")
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again. ").strip().lower()
+                play = input("Do you want to play again. ").strip().lower()
                 continue
         elif player == "scissors":
             if com_choice == 1:
-                print(f"Scissors")
+                print(f"scissors")
                 print("We tie")
                 tie += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again. ").strip().lower()
+                play = input("Do you want to play again. ").strip().lower()
                 continue
             elif com_choice == 2:
                 print(f"Rock")
                 print("You lose")
                 lose += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again. ").strip().lower()
+                play = input("Do you want to play again. ").strip().lower()
                 continue
             else:
                 print(f"Paper")
                 print("You win")
                 win += 1
                 print(f"Wins: {win}, Ties: {tie}, Loses: {lose}")
-                run = input("Do you want to play again.").strip().lower()
+                play = input("Do you want to play again.").strip().lower()
                 continue
 
         else:
