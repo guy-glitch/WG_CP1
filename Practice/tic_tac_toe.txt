@@ -1,0 +1,11 @@
+WG Tic Tac Toe pseudocode
+Display This is a computerized game of Tic Tac Toe
+while no one has one 
+    Show  _|_|_
+          _|_|_
+           | | 
+        Display player do you want to be X or O 
+            if 
+    
+
+
