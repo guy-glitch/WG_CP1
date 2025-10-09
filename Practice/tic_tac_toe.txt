@@ -17,7 +17,7 @@ Grid  _1|2_|3_
       _4|5_|6_
        7|8 |9 
 Show Grid
-    if round > 1   
+    if round < 1   
         Ask the player to choose X or O?
         if the player chooses X
     while it is players turn
@@ -48,27 +48,28 @@ Show Grid
         or 1 is O, 2 is O, and 3 is O
             won is O
             display X won
-        or 1 is X, 5 is X, and 9 is X
-            won is X 
-            display X won
-        or 1 is X, 5 is X, and 9 is X
-            won is X 
-            display X won
-        or 1 is X, 5 is X, and 9 is X
-            won is X 
-            display X won
-        or 1 is X, 5 is X, and 9 is X
-            won is X 
-            display X won
-        or 1 is X, 5 is X, and 9 is X
-            won is X 
-            display X won
-        or 1 is X, 5 is X, and 9 is X
-            won is X 
-            display X won
-        or 1 is X, 5 is X, and 9 is X
-            won is X 
-            display X won
+        or 1 is O, 5 is O, and 9 is O
+            won is O 
+            display O won
+        or 3 is O, 5 is O, and 7 is O
+            won is O 
+            display O won
+        or 7 is O, 8 is O, and 9 is O
+            won is O 
+            display O won
+        or 4 is O, 5 is O, and 6 is O
+            won is O 
+            display O won
+        or 3 is O, 6 is O, and 9 is O
+            won is O 
+            display O won
+        or 2 is O, 5 is O, and 8 is O
+            won is O 
+            display O won
+        or 1 is O, 4 is O, and 7 is O
+            won is O 
+            display O won
+        else    
             print Grid
             Ask the player to choose a number from the Grid
             if number is 1
@@ -189,8 +190,58 @@ Show Grid
 
         else
             turn is computer   
-    while it is computer turn    
-        number is random.randint(1,9)
+    while it is computer turn   
+    while it is players turn
+        if 1 is X, 2 is X, and 3 is X
+            won is X
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+        or 3 is X, 5 is X, and 7 is X
+            won is X 
+            display X won
+        or 7 is X, 8 is X, and 9 is X
+            won is X 
+            display X won
+        or 4 is X, 5 is X, and 6 is X
+            won is X 
+            display X won
+        or 3 is X, 6 is X, and 9 is X
+            won is X 
+            display X won
+        or 2 is X, 5 is X, and 8 is X
+            won is X 
+            display X won
+        or 1 is X, 4 is X, and 7 is X
+            won is X 
+            display X won
+        or 1 is O, 2 is O, and 3 is O
+            won is O
+            display X won
+        or 1 is O, 5 is O, and 9 is O
+            won is O 
+            display O won
+        or 3 is O, 5 is O, and 7 is O
+            won is O 
+            display O won
+        or 7 is O, 8 is O, and 9 is O
+            won is O 
+            display O won
+        or 4 is O, 5 is O, and 6 is O
+            won is O 
+            display O won
+        or 3 is O, 6 is O, and 9 is O
+            won is O 
+            display O won
+        or 2 is O, 5 is O, and 8 is O
+            won is O 
+            display O won
+        or 1 is O, 4 is O, and 7 is O
+            won is O 
+            display O won
+        else     
+            number is random.randint(1,9)
             if player is X
                 if number is 1
                     if 1 is 1
