@@ -1,11 +1,306 @@
 WG Tic Tac Toe pseudocode
+Import random module
 Display This is a computerized game of Tic Tac Toe
-while no one has one 
-    Show  _|_|_
-          _|_|_
-           | | 
-        Display player do you want to be X or O 
-            if 
-    
+while no one has won
+turn is player 
+round is 0
+1 is 1
+2 is 2
+3 is 3
+4 is 4
+5 is 5
+6 is 6
+7 is 7
+8 is 8
+9 is 9
+Grid  _1|2_|3_
+      _4|5_|6_
+       7|8 |9 
+Show Grid
+    if round > 1   
+        Ask the player to choose X or O?
+        if the player chooses X
+    while it is players turn
+        if 1 is X, 2 is X, and 3 is X
+            won is X
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+        or 3 is X, 5 is X, and 7 is X
+            won is X 
+            display X won
+        or 7 is X, 8 is X, and 9 is X
+            won is X 
+            display X won
+        or 4 is X, 5 is X, and 6 is X
+            won is X 
+            display X won
+        or 3 is X, 6 is X, and 9 is X
+            won is X 
+            display X won
+        or 2 is X, 5 is X, and 8 is X
+            won is X 
+            display X won
+        or 1 is X, 4 is X, and 7 is X
+            won is X 
+            display X won
+        or 1 is O, 2 is O, and 3 is O
+            won is O
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+        or 1 is X, 5 is X, and 9 is X
+            won is X 
+            display X won
+            print Grid
+            Ask the player to choose a number from the Grid
+            if number is 1
+                if 1 is 1
+                    then 1 is X
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 2
+                if 2 is 2
+                    then 2 is X
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 3
+                if 3 is 3
+                    then 3 is X
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 4
+                if 4 is 4
+                    then 4 is X
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 5
+                if 5 is 5
+                    then 5 is X
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 6
+                if 6 is 6
+                    then 6 is X
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 7
+                if 7 is 7
+                    then 7 is X
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 8
+                if 8 is 8
+                    then 8 is X
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 9
+                tif 9 is 9
+                    then 9 is X
+                    round + 1
+                    turn is computer
+                else display pick again
+            else display that is not a number you can choose  continue
+    if the player chooses O
+            
+    while it is players turn
+        Ask the player to choose a number from the Grid
+            display Grid
+            if number is 1
+                if 1 is 1
+                    then 1 is O
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 2
+                if 2 is 2
+                    then 2 is O
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 3
+                if 3 is 3
+                    then 3 is O
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 4
+                if 4 is 4
+                    then 4 is O
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 5
+                if 5 is 5
+                    then 5 is O
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 6
+                if 6 is 6
+                    then 6 is O
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 7
+                if 7 is 7
+                    then 7 is O
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 8
+                if 8 is 8
+                    then 8 is O
+                    round + 1
+                    turn is computer
+                else display pick again continue
+            or if number is 9
+                tif 9 is 9
+                    then 9 is O
+                    round + 1
+                    turn is computer
+                else display pick again
+            else display that is not a number you can choose  continue    
 
-
+        else
+            turn is computer   
+    while it is computer turn    
+        number is random.randint(1,9)
+            if player is X
+                if number is 1
+                    if 1 is 1
+                        then 1 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 2
+                    if 2 is 2
+                        then 2 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 3
+                    if 3 is 3
+                        then 3 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 4
+                    if 4 is 4
+                        then 4 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 5
+                    if 5 is 5
+                        then 5 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 6
+                    if 6 is 6
+                        then 6 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 7
+                    if 7 is 7
+                        then 7 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 8
+                    if 8 is 8
+                        then 8 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 9
+                    if 9 is 9
+                        then 9 is X
+                        round + 1
+                        turn is player
+                    else display pick again
+                else display that is not a number you can choose
+            else
+                if number is 1
+                    if 1 is 1
+                        then 1 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 2
+                    if 2 is 2
+                        then 2 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 3
+                    if 3 is 3
+                        then 3 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 4
+                    if 4 is 4
+                        then 4 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 5
+                    if 5 is 5
+                        then 5 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 6
+                    if 6 is 6
+                        then 6 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 7
+                    if 7 is 7
+                        then 7 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 8
+                    if 8 is 8
+                        then 8 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                or if number is 9
+                    if 9 is 9
+                        then 9 is O
+                        round + 1
+                        turn is player
+                    else display pick again
+                else display that is not a number you can choose     
+                        
