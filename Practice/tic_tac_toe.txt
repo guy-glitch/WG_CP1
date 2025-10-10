@@ -303,4 +303,3 @@ Show Grid
                         turn is player
                     else display pick again
                 else display that is not a number you can choose     
-                        
