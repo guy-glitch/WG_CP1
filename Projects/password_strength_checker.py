@@ -4,7 +4,7 @@ password = input("What is your password that you want to check the strength of?"
 #get length of password
 password_len = len(password)
 #list of special characters
-special = "(!@#$%^&*()_+-=[]{}|;:,.<>?)"
+special = "(!@#$%^&*()_+-=[]{}|;:,.<>? )"
 #score = 0
 score = 0
 #for characters in password
