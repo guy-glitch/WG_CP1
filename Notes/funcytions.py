@@ -2,7 +2,7 @@
 def add(x, y):
     return x + y
 def initials(name):
-    names = name.split(" ")\
+    names = name.split(" ")
     for name in names:
         initial += name[0]
 
