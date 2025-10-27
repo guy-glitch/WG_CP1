@@ -37,6 +37,8 @@ elif class_choice == "demon":
 else:
     print("Incorrect input try again")
 def player_turn():
+    global player
+    global monster_life
     attack_choice = input(f"type 1 for attack {stats['attack one']} or type 2 for attack {stats['attack two']} type 2?").strip().lower()
     if attack_choice == "1":
         print(f"You used {stats['attack one']}")
@@ -90,7 +92,7 @@ def player_turn():
             else:
                 print("You missed!")
     if attack_choice == "2":
-        print(f"You used {stats['attack one']}")
+        print(f"You used {stats['attack two']}")
         if class_choice == "bunny":
             attack_roll = random.randint(1,20) + 2
             print(f"you rolled a {attack_roll}")
@@ -99,9 +101,6 @@ def player_turn():
                 damage_roll = (random.randint(1,10))*1.2
                 print(f"You hit the diamond ant for {damage_roll} damage!")
                 monster["health"] -= damage_roll
-                time.sleep(3)
-                damage_roll = (random.randint(1,10)) * 0.3
-                print(f"You hit the diamond ant for an additional {damage_roll} damage with your multikick!")
                 time.sleep(3)
                 monster["health"] -= damage_roll
                 if monster["health"] <= 0:
@@ -138,6 +137,8 @@ def player_turn():
             else:
                 print("You missed!")
 def monster_turn():
+    global player
+    global monster_life
     print("The diamond ant is attacking!")
     attack = random.randint(1,2)
     if attack == 1:
