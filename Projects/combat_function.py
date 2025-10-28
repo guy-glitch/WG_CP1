@@ -89,7 +89,7 @@ def player_turn(player,monster_life):
                     monster_life="dead"
             else:
                 print("You missed!")
-    if attack_choice=="2":
+    elif attack_choice=="2":
         print(f"You used {stats['attack one']}")
         if class_choice=="bunny":
             attack_roll=random.randint(1,20) + 2
