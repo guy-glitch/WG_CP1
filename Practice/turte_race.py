@@ -46,14 +46,14 @@ while winner == "none":
         winner = t1
     elif t2.xcor() > 5000:
         t.color("green")
-        winner = t1
+        winner = t2
     elif t3.xcor() > 5000:
         t.color("green")
-        winner = t1
+        winner = t3
     elif t4.xcor() > 5000:
         t.color("green")
-        winner = t1
+        winner = t4
     elif t5.xcor() > 5000:
         t.color("green")
-        winner = t1
+        winner = t5
 t.done()
