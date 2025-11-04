@@ -6,10 +6,9 @@ import random as r
 screen = t.Screen()
 screen.setup(800,800)
 #list row_grid detirmines if there is a wall there
-row_grid = [
-    [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]]
+row_grid = [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]
 #list col_grid that detirmenes if there is a wall there
-col_grid = [[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]]
+col_grid = [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]
 #Def is_solvable
 def is_solvable(row_grid, col_grid):
     #set the size as one less then the length of row grid
@@ -64,12 +63,11 @@ if is_solvable(row_grid, col_grid)==True:
     t.right(90)
     t.forward(500)
     for num in row_grid:
-        for num1 in row_grid[num]:
-            t.teleport(200+num1*100,num*100+100)
-            if row_grid[num][num1]==1:
-                t.forward(200)
-                continue
-            else:
-                continue
+        t.teleport(200+num1*100,num*100+100)
+        if row_grid[num][num1]==1:
+            t.forward(200)
+            continue
+        else:
+            continue
 
 t.done()
