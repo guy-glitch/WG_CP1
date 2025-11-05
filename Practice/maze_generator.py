@@ -4,11 +4,13 @@ import turtle as t
 import random as r
 #set up the screen
 screen = t.Screen()
-screen.setup(800,800)
+screen.setup(1000,1000)
 #list row_grid detirmines if there is a wall there
-row_grid = [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]
+row_grid = [
+    [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]]
 #list col_grid that detirmenes if there is a wall there
-col_grid = [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]
+col_grid = [
+    [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],[r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]]
 #Def is_solvable
 def is_solvable(row_grid, col_grid):
     #set the size as one less then the length of row grid
@@ -51,23 +53,23 @@ def is_solvable(row_grid, col_grid):
     return False
 #check if is solvable is true
 if is_solvable(row_grid, col_grid)==True:
-    t.teleport(-300,-300)
+    t.teleport(-400,-400)
     t.color("black")
     t.left(90)
-    t.forward(600)
+    t.forward(800)
     t.right(90)
-    t.forward(500)
-    t.teleport(300,300)
+    t.forward(700)
+    t.teleport(400,400)
     t.right(90)
-    t.forward(600)
+    t.forward(800)
     t.right(90)
-    t.forward(500)
+    t.forward(700)
     for num in row_grid:
-        t.teleport(200+num1*100,num*100+100)
-        if row_grid[num][num1]==1:
-            t.forward(200)
-            continue
-        else:
-            continue
-
+        for i in num:
+            if i==1:
+                t.teleport(-500+100*i,-500+100*i)
+                t.forward(100)
+                continue
+            else:
+                continue
 t.done()
