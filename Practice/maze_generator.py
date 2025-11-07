@@ -32,7 +32,7 @@ def is_solvable(row_grid, col_grid):
         #remove the x, y cordinate that is last from the stack
         x, y = stack.pop()
         #Check if x and y are at the end of size
-        if x == size - 1 and y == size - 1:
+        if x == size and y == size:
             #return true
             return True
         #see if x, y are visited
@@ -42,20 +42,20 @@ def is_solvable(row_grid, col_grid):
         #Add x, y to visited
         visited.add((x,y))
         #check if x is less then size and if y and x increased by one is still in the grid
-        if x < size and col_grid[y][x+1] == 0:
+        if x < size  and row_grid[y][x+1] == 0:
             #add x plus one to the stack 
             stack.append((x+1,y))
         #check if x is less then size and if y and x increased by one is still in the grid
-        if y < size and row_grid[y+1][x] == 0:
+        if y < size and col_grid[x][y+1] == 0:
             #add x plus one to the stack 
             stack.append((x, y+1))
         #check if x is less then size and if y and x increased by one is still in the grid
-        if x > 0 and col_grid[y][x] == 0:
+        if x > 0 and row_grid[y][x-1] == 0:
             #add x plus one to the stack 
             stack.append((x-1, y))
         #check if x is less then size and if y and x increased by one is still in the grid
-        if y > 0 and row_grid[y][x] == 0:
-            #add x plus one to the stack 
+        if y > 0 and col_grid[x][y-1] == 0:
+            #add y minus one to the stack 
             stack.append((x, y-1))
 #if not solvable will return false
     return False
@@ -63,19 +63,20 @@ def is_solvable(row_grid, col_grid):
 
 while True:
     row_grid, col_grid = maze_setup()
-    if is_solvable(row_grid, col_grid)==True:
+    solvable = is_solvable(row_grid, col_grid)
+    if solvable==True:
         #draw maze block square
         t.teleport(-400,-400)
         t.color("black")
         t.left(90)
         t.forward(800)
         t.right(90)
-        t.forward(700)
+        t.forward(800-800/6)
         t.teleport(400,400)
         t.right(90)
         t.forward(800)
         t.right(90)
-        t.forward(700)
+        t.forward(800-800/6)
         t.teleport(-400,-400)
         t.right(180)
         #loop through row_grid
