@@ -5,7 +5,7 @@ import random as r
 #hide the turtle
 #t.hideturtle()
 #increase speed
-t.speed(700)
+t.speed(1000)
 #set up the screen
 screen = t.Screen()
 screen.setup(1000,1000)
@@ -42,13 +42,15 @@ def is_solvable(row_grid, col_grid):
         #Add x, y to visited
         visited.add((x,y))
         #check if x is less then size and if y and x increased by one is still in the grid
-        if x < size  and row_grid[y][x+1] == 0:
+        if x < size and row_grid[x+1][y] == 0:
             #add x plus one to the stack 
-            stack.append((x+1,y))
+            if x +1 <=size:
+                stack.append((x+1,y))
         #check if x is less then size and if y and x increased by one is still in the grid
         if y < size and col_grid[x][y+1] == 0:
             #add x plus one to the stack 
-            stack.append((x, y+1))
+            if y+1 <= size:
+                stack.append((x, y+1))
         #check if x is less then size and if y and x increased by one is still in the grid
         if x > 0 and row_grid[y][x-1] == 0:
             #add x plus one to the stack 
