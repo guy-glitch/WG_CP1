@@ -3,7 +3,7 @@
 import turtle as t
 import random as r
 #hide the turtle
-#t.hideturtle()
+t.hideturtle()
 #increase speed
 t.speed(1000)
 #set up the screen
