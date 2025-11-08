@@ -44,15 +44,13 @@ def is_solvable(row_grid, col_grid):
         #check if x is less then size and if y and x increased by one is still in the grid
         if x < size and row_grid[x+1][y] == 0:
             #add x plus one to the stack 
-            if x +1 <=size:
                 stack.append((x+1,y))
         #check if x is less then size and if y and x increased by one is still in the grid
         if y < size and col_grid[x][y+1] == 0:
-            #add x plus one to the stack 
-            if y+1 <= size:
+            #add x plus one to the stack
                 stack.append((x, y+1))
         #check if x is less then size and if y and x increased by one is still in the grid
-        if x > 0 and row_grid[y][x-1] == 0:
+        if x > 0 and row_grid[x-1][y] == 0:
             #add x plus one to the stack 
             stack.append((x-1, y))
         #check if x is less then size and if y and x increased by one is still in the grid
