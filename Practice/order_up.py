@@ -104,78 +104,81 @@ while True:
         print("Incorrect order again")
 #ask them for a tip
 tip = float(input("How large of a tip do you want to give? Please input only a number. If you don't want to leave a tip input zero. Thank You"))
-#ask them if they want to fight the wiater
-fight = input("Do you want to fight your waiter to get free food yes or no")
-#if they say yes decide who goes first
-if fight == "yes":
-    first = r.randint(0,1)
-    while waiter_health >0 and order_health >0:
-            if first == 0:
-                #tell them they get to go first and give give them attack choices
-                print("You get to fight first")
-                attack_area = input(f"Where do you want to hit the waiter {waiter_limbs[0]}, {waiter_limbs[1]}, {waiter_limbs[2]}, {waiter_limbs[3]}")
-                if attack_area == waiter_limbs[0]:
-                    attack = input("Do you want to punch or kick.")
-                    if attack == "punch":
-                        damage = r.randint(1,6)
-                        waiter_health -= damage
-                    elif attack == "kick":
-                        damage = r.randint(1,4)
-                        waiter_health -= damage
+#define waiter fight
+def waiter_fight():
+    #ask them if they want to fight the wiater
+    fight = input("Do you want to fight your waiter to get free food yes or no")
+    #if they say yes decide who goes first
+    if fight == "yes":
+        first = r.randint(0,1)
+        while waiter_health >0 and order_health >0:
+                if first == 0:
+                    #tell them they get to go first and give give them attack choices
+                    attack_area = input(f"Where do you want to hit the waiter {waiter_limbs[0]}, {waiter_limbs[1]}, {waiter_limbs[2]}, {waiter_limbs[3]}").strip().lower()
+                    if attack_area == "head":
+                        attack = input("Do you want to punch or kick.")
+                        if attack == "punch":
+                            damage = r.randint(1,6)
+                            waiter_health -= damage
+                        elif attack == "kick":
+                            damage = r.randint(1,4)
+                            waiter_health -= damage
+                        else:
+                            print("Invalid input you fail")
+                    elif attack_area == "torso":
+                        attack = input("Do you want to punch or kick.")
+                        if attack == "punch":
+                            damage = r.randint(1,5)
+                            waiter_health -= damage
+                        elif attack == "kick":
+                            damage = r.randint(1,7)
+                            waiter_health -= damage
+                        else:
+                            print("Invalid input you fail")
+                    elif attack_area == "arm":
+                        attack = input("Do you want to punch or kick.")
+                        if attack == "punch":
+                            damage = r.randint(1,2)
+                            waiter_health -= damage
+                        elif attack == "kick":
+                            damage = r.randint(1,2)
+                            waiter_health -= damage
+                        else:
+                            print("Invalid input you fail")
+                    elif attack_area == "leg":
+                        attack = input("Do you want to punch or kick.")
+                        if attack == "punch":
+                            damage = r.randint(1,3)
+                            waiter_health -= damage
+                        elif attack == "kick":
+                            damage = r.randint(1,5)
+                            waiter_health -= damage
+                        else:
+                            print("Invalid input you fail")
                     else:
-                        print("Invalid input you fail")
-                elif attack_area == waiter_limbs(1):
-                    attack = input("Do you want to punch or kick.")
-                    if attack == "punch":
-                        damage = r.randint(1,5)
-                        waiter_health -= damage
-                    elif attack == "kick":
+                        print("You aimed at nothing you do no damage.")
+                    first = 1
+                elif first == 1:
+                    target = r.choice(order_limbs)
+                    print(f"They attack your {target}")
+                    attack_type = r.randint(0,1)
+                    if attack_type == 0:
                         damage = r.randint(1,7)
-                        waiter_health -= damage
+                        order_health -= damage
                     else:
-                        print("Invalid input you fail")
-                elif attack_area == waiter_limbs(2):
-                    attack = input("Do you want to punch or kick.")
-                    if attack == "punch":
-                        damage = r.randint(1,2)
-                        waiter_health -= damage
-                    elif attack == "kick":
-                        damage = r.randint(1,2)
-                        waiter_health -= damage
-                    else:
-                        print("Invalid input you fail")
-                elif attack_area == waiter_limbs(3):
-                    attack = input("Do you want to punch or kick.")
-                    if attack == "punch":
-                        damage = r.randint(1,3)
-                        waiter_health -= damage
-                    elif attack == "kick":
                         damage = r.randint(1,5)
-                        waiter_health -= damage
-                    else:
-                        print("Invalid input you fail")
-                else:
-                    print("You aimed at nothing you do no damage.")
-                first = 1
-            elif first == 1:
-                target = r.choice(order_limbs)
-                print(f"They attack your {target}")
-                attack_type = r.randint(0,1)
-                if attack_type == 0:
-                    damage = r.randint(1,7)
-                    order_health -= damage
-                else:
-                    damage = r.randint(1,5)
-                    order_health
-                first = 0
-    if waiter_health <= 0:
-        print("You won you don't have to pay")
-        won = 0
-    elif order_health <= 0:
-        print("You lost you have to pay double")
-        won = 2
+                        order_health
+                    first = 0
+        if waiter_health <= 0:
+            print("You won you don't have to pay")
+            won = 0
+            return won
+        elif order_health <= 0:
+            print("You lost you have to pay double")
+            won = 2
+            return won
 #get there total cost
-order["total"]=won(main_course[main_choice]+sides[side_choice]+sides[side_choice1]+drink[drink_choice]+0.03*(main_course[main_choice]+sides[side_choice]+sides[side_choice1]+drink[drink_choice])+tip)
+order["total"]=waiter_fight()*(main_course[main_choice]+sides[side_choice]+sides[side_choice1]+drink[drink_choice]+0.03*(main_course[main_choice]+sides[side_choice]+sides[side_choice1]+drink[drink_choice])+tip)
 order["total"]=round(order["total"], 2)
 #print out the order
 for key, options in order.items():
