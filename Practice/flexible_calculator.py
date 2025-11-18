@@ -39,4 +39,25 @@ while True:
         number= int(input("What is the number"))
         numbers.append(number)
     #if they are finding the sum call sum if they are finding the average call average if they are finding the minimum call min if they are finding the max call max and if they are finding the product call product
-    answer = sum(numbers)
+    if operation_used == 1:
+        answer = sum(numbers)
+        print(f"The sum of your numbers is {answer}")
+    elif operation_used == 2:
+        answer = Average(numbers)
+        print(f"The average of your numbers is {answer}")
+    elif operation_used == 3:
+        answer = Max(numbers)
+        print(f"The maximum of your numbers is {answer}")
+    elif operation_used == 4:
+        answer = Min(numbers)
+        print(f"The minimum of your numbers is {answer}")
+    elif operation_used == 5:
+        answer = Product(numbers)
+        print(f"The product of your numbers is {answer}")
+    else:
+        print("That is not a valid input please try again")
+        #ask them if they want to calculate again
+    again = input("Do you want to calculate again? yes/no").strip().lower()
+    if again != "yes":
+        print("Thank you for using the Flexible Calculator, Goodbye!")
+        break
