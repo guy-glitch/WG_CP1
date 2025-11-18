@@ -1,21 +1,33 @@
 #WG 1st Flexible Calculator
+#import statistics module
+import statistics
 #define the sum function
 def Sum(*number):
     #get the sum of all items in the list and return it
-    result = number.sum()
+    result = 0
+    for n in number:
+        result += int(n)
     return result
     #get the average of all items in the list and return it
 def Average(*number):
     length = len(number)
-    total = number.sum()
+    total = 0
+    for n in number:
+        total += int(number[n])
     result = total/length
     return result
     #get the largest number in the list then 
 def Max(*number):
-    result = number.max()
+    for i in number:
+        numbers = []
+        numbers.append(i)
+    result = numbers.max()
     return result
     #gets the smallest number and return resul
 def Min(*number):
+    for i in number:
+        numbers = []
+        numbers.append(i)
     result = number.min()
     return result
     #gets thr product and returns the result
@@ -40,7 +52,7 @@ while True:
         numbers.append(number)
     #if they are finding the sum call sum if they are finding the average call average if they are finding the minimum call min if they are finding the max call max and if they are finding the product call product
     if operation_used == 1:
-        answer = sum(numbers)
+        answer = Sum(numbers)
         print(f"The sum of your numbers is {answer}")
     elif operation_used == 2:
         answer = Average(numbers)
