@@ -7,6 +7,7 @@ def Sum(*number):
         for i in n:
             result += int(i)
     return result
+
     #get the average of all items in the list and return it
 def Average(*number):
     numbers = []
@@ -15,6 +16,7 @@ def Average(*number):
             numbers.append(i)
     result = sum(numbers)/len(numbers)
     return result
+
     #get the largest number in the list then 
 def Max(*number):
     for i in number:
@@ -23,6 +25,7 @@ def Max(*number):
             numbers.append(n)
     result = max(numbers)
     return result
+
     #gets the smallest number and return resul
 def Min(*number):
     numbers = []
@@ -31,6 +34,7 @@ def Min(*number):
             numbers.append(n)
     result = min(numbers)
     return result
+
     #gets thr product and returns the result
 def Product(*number):
     product = 1
@@ -39,6 +43,7 @@ def Product(*number):
             product *= n
     result =  product
     return result
+
 #put it all in a while loop to run until they are done
 while True:    
     #give user intruduction
