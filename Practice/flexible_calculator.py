@@ -1,6 +1,4 @@
 #WG 1st Flexible Calculator
-#import stastistics
-import statistics
 #define the sum function
 def Sum(*number):
     #get the sum of all items in the list and return it
