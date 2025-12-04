@@ -40,7 +40,7 @@ def cooking(critic_name):
     #display the cooking instructions
     print("To cook select the ingredients you want to add to your meal, then select the format")
     #display the order name based on function critic name
-    print(critic_name                                  )
+    print(f"{critic_name}")
     #let them choose if they want to cook for the critic
     cooking = input("Do you want to cook for the critic")
     #if they choose to cook for the critic:
@@ -66,31 +66,38 @@ def cooking(critic_name):
                 ingredient = input("What ingredeint do you want to use?").strip()
                 ingredients.append(ingredient)
         #let them choose the presentation they want to use form a set list
-        print(p)
+        print(presentation)
+        presentation_choice = input("What presentationdo you want to use.")
         #using there control stat as a basis give them a certain percent chance of getting caught
-
+        caught = r.randint(1,101)
+        if caught > remy("Control"):
+            return "You were caught"
         #check if the ingredients correlated with the name is in the meal
-
+        if critic_last[critic_name] in ingredients:
             #increase star rating by 0.1 and display the original and the new
-
+            remy["Star rating"] += 0.1
+            print("The critic liked the ingredeints star rating increased by 0.1")
+            print(f"Your new star rating is {remy['Star rating']}")
         #check if the presentation correlated with the first name is used
-
+        if presentation == critic_first[critic_name]:
             #increase star rating by 0.1 and display the original and the new
-
+             remy["Star rating"] += 0.1
+             print("The critic liked the presentation star rating increased by 0.1")
+             print(f"Your new star rating is {remy['Star rating']}")
     #else if they choose not to cook for the critic
-
+    elif cooking == "no":
         #decrease star rating by .5
-
+        remy["Star rating"] -= 0.5
+        print("The critic is mad you didn't cook for them star rating decrease by 0.5")
+        print(f"Your new star rating is {remy['Star rating']}")
     #else:
-
-        #rerun the function
-
+    else:
+        #  rerun the function
+        cooking(critic_name)
 #Create the function for the office
-
-
+def office():
     #variable entered = no
-
-
+    entered = "no"
     #if variable entered == no
 
         #describe the room
@@ -106,11 +113,9 @@ def cooking(critic_name):
         #if they came because they dropped the star rating give them an angry message and send them out to be a server
 
 #Create the function for the dining room with argument delegated
-
-
+def dining_room(delegated):
     #variable entered = no
-
-
+    entered = "no"
     #if variable entered == no
 
 
@@ -146,11 +151,9 @@ def cooking(critic_name):
 
 
 #Create the function for the office
-
-
+def apartment():
     #variable entered = no
-
-
+    entered = "no"
     #if variable entered == no
 
 
@@ -162,19 +165,10 @@ def cooking(critic_name):
 
     #while entered == yes
 
-
-        #if they came in here to be congratulated
-
-
-            #give them a congratulated message for raising the star rating
-
-
-        #if they came because they dropped the star rating give them an angry message and send them out to be a server
-
 #Create the function for the street
-
+def street():
     #variable entered = no
-
+    entered = "no"
     #if variable entered == no
 
         #describe the room
@@ -192,11 +186,9 @@ def cooking(critic_name):
         #if they came because they dropped the star rating give them an angry message and send them out to be a server
 
 #Create the function for the pantry
-
-
+def pantry():
     #variable entered = no
-
-
+    entered = "no"
     #if variable entered == no
 
 
@@ -221,11 +213,9 @@ def cooking(critic_name):
         #return the ingredients that they chose
 
 #Create the function for the street
-
-
+def street():
     #variable entered = no
-
-
+    entered = "no"
     #if variable entered == no
 
 
@@ -248,11 +238,9 @@ def cooking(critic_name):
 
 
 #Create the function for the private dining room
-
-
+def private_dining():
     #variable entered = no
-
-
+    entered = "no"
     #if variable entered == no
 
 
@@ -272,11 +260,9 @@ def cooking(critic_name):
 
 
 #Create the function for the rat's nest
-
-
+def rats_nest():
     #variable entered = no
-
-
+    entered = "no"
     #if variable entered == no
 
 
@@ -299,11 +285,9 @@ def cooking(critic_name):
 
 
 #Create the function for the entry hall
-
-
+def entry_hall():
     #variable entered = no
-
-
+    entered = "no"
     #if variable entered == no
 
 
@@ -323,11 +307,9 @@ def cooking(critic_name):
 
 
 #create the function that generates the critics name
-
-
+def critics_name():
     #critic name = []
-
-
+    critic_name = []
     #get a random value from critics first name dictionary
 
 
@@ -347,40 +329,34 @@ def cooking(critic_name):
 
 
 #while loop that is infinite
-
-
+while True:
     #ask them if they want to go to work with Alfredo Linguini
-
-
+    work = input("\033[33mDo you want to work with Alfredo Linguini, and become a chef")
     #if they don't want to go to work
-
-
+    if work == "no":
         #allow them to choose whether or not they want to return to the rat's nest or wander the streets allowing
-
-
+        live = input("Do you want to return to the rats nest or wander the streets alone")
         #if they return to rat's nest
-
-
-            #call rat's nest function
-
-
+        if live == "rats nest":
+            print("You die on poisoned food")
+            again = input("Do you want to play again")
+            if again == "yes":
+                continue
+            else:
+                break
         #else if they want to be alone
-
-
+        elif live == "alone":
             #describe them running into a mouse trap and dying
-
-
-            #break
+            print("you run into a moust trap and die")
+            again = input("Do you want to play again")
+            if again == "yes":
+                continue
+            else:
+                break
         #else
-
-
+        else:
             #continue
-
-
+            continue
     #if else they do want to go to work with him
 
-
         #send them to work with him
-
-
-#describe them dying
