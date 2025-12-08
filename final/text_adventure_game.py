@@ -3,7 +3,7 @@
 import random as r
 import time as t
 #Create Remy's stat dictionary with three stats Star rating: 4, Cooking Sense: 5%, Control: 75%
-remy = {"Star rating": 4, "Cooking sense": 5, "Control": 75}
+remy = {"Star rating": 4, "Cooking sense": 5, "Control": 75, "trust":0}
 #Last name dictionary of critic last names, correlated with the ingredient that name enjoys Tommato, Zucchhini, Mozzeralla, Baslil, Sausasge, Peperoncini, Swoup
 critic_last ={"Tommato": "Tomato", "Zuchhini":"Zuchini", "Mozzeralla":"Mozzarella", "Baslil":"Basil", "Sausasge":"Sausage", "Peperocnini":"Peperoncini", "Galcir":"Garlic"}
 #First name dictionary of critic first names correlated with the presentation wanted Circel, Zgiazg, Sritpe, Retow
@@ -18,6 +18,7 @@ trained = False
 cooking_practice = False
  #create variable cooking pot = uncollected
 cooking_pot = "uncollected"
+seasoning = "uncollected"
 #create variable practice meal = unmade
 practice_meal = "unmade"
 #create a list of the ingredients that they can choose from at base level.
@@ -30,6 +31,26 @@ location = "aparment"
 presentation = []
 #ingredients used in the meal
 ingredients = []
+def kitchen():
+    #variable entered = no
+    entered = "no"
+    #if variable entered == no
+    if entered == "no":
+        #describe the room
+        print("The kitchen at Gusteau's is a large, vibrant space designed to look like an authentic, high-end Parisian restaurant kitchen, blending functional industrial elements with rustic charm. It's constantly bustling with activity, noise, and steam. The floors are a mixture of tile and brick, and the walls are partially tiled, giving it a lived-in, professional feel.")
+        t.wait(90)
+        print("The central visual appeal comes from the extensive use of gleaming copper cookware—pots and pans hang from racks or are stacked high, catching the warm, golden light cast by the overhead lamps and the numerous gas burners.")
+        t.wait(90)
+        print("The atmosphere is further enhanced by piles of fresh, colorful vegetables and ingredients visible throughout the various preparation stations. It appears both chaotic and efficient, a true working kitchen that embodies the passion and energy of a demanding French culinary environment.")
+        #Set enter to yes
+        enter = "yes"
+    #while entered == yes
+    while entered == "yes":
+        #if cooking pot is uncollected collect it and change stats
+
+        #if seasoning is uncollected collect it and change stats
+
+        #else nothing is done in this room
 #create a function for moving around
 def moving(choice):
     if choice == "choice":
@@ -86,7 +107,7 @@ def cooking(critic_name):
         if presentation == critic_first[critic_name]:
             #increase star rating by 0.1 and display the original and the new
              remy["Star rating"] += 0.1
-             print("The critic liked the presentation star rating increased by 0.1")
+             print(f"The critic liked the presentation star rating increased by {0.1*remy("Cooking sense")}")
              print(f"Your new star rating is {remy['Star rating']}")
     #else if they choose not to cook for the critic
     elif cooking == "no":
@@ -149,21 +170,42 @@ def dining_room(delegated):
                     print(f"The customers think it was better than the star rating, star rating increased by 0.1 new star rating is {remy['Star rating']}")
                     moving("choice")
         #else
-
+        else:
+            ##give a list of random things that could be in there path.
+            directions = ["Shadowy circle","Wavering shape","small space","moving shadows close to the ground", "empty space", "towering arch"]
+            #give them training information, then run through the training
+            
             #use a loop to let them move 10 times
-           
-                #give them training information, then run through the training
-               
+            for i in range(10):
+                ##set each of the variables to one of the option from the directions
+                front = r.choice(directions)
+                left = r.choice(directions)
+                right = r.choice(directions)
+                behind =  r.choice(directions)
                 # Describe the shadows they see round them
-               
+                print(f"To your left you see a {left}, in front of you you see a {front}, to your right you see a {right}, behind you is a {behind}")
                 # ask them what direction they want to move in based off of the shadows
-               
-                #have a list of directions that they can't move in if they choose one of those directions decrease their trust
-
+                direction = input("Do you want to move left forward, right or backwards or do you want to stay where you are.")
                 #if they move successfully increase the trust
-
-            #describe them getting called back into the kitchen and ask them if they want to move back to the kitchen if so move them back to the kitchen
-
+                if direction == "stay":
+                    continue
+                elif direction == "right" and right != "Shadowy circle" and right != "Wavering shape" and right != "moving shadows close to the ground":
+                    remy("trust") += 2
+                elif direction == "forward" and front != "Shadowy circle" and front != "Wavering shape" and front != "moving shadows close to the ground":
+                    remy("trust") += 2
+                elif direction == "left" and left != "Shadowy circle" and left != "Wavering shape" and left != "moving shadows close to the ground":
+                    remy("trust") += 2
+                elif direction == "backward" and behind != "Shadowy circle" and behind != "Wavering shape" and behind != "moving shadows close to the ground":
+                    remy("trust") += 2
+                else:
+                    print("You stay where you are.")
+                    continue
+            #describe them getting called back into the kitchen and ask them if they want to move back to the kitchen if so move them back to the kitchen and also increase the control by trust
+            remy("Control") += remy("trust")
+            print("Alffredo they need you bakc in the kitchens")
+            go = input("Do you want to return to the kitchen")
+            if go == "yes":
+                moving(kitchen())
 #Create the function for the office
 def apartment():
     #variable entered = no
@@ -294,17 +336,22 @@ def entry_hall():
 #create the function that generates the critics name
 def critics_name():
     #critic name = []
-    critic_name = []
+    critic_name1 = []
+    critic_values = []
     #get a random value from critics first name dictionary
-    critic_name.append(r.choice(critic_first))
+    critic_values.append(r.choice(critic_first))
     #get a random value from the critic last name dictionary
-    critic_name.append(r.choice(critic_first))
+    critic_values.append(r.choice(critic_first))
     #get the key that corresponds with the value of the first name and add to the list critic name
-
+    for key, value in critic_first.items():
+        if value == critic_values(0):
+            critic_name1.append(key)
     #get the key that corresponds with the value of the first name and add to the list critic name
-
+    for key, value in critic_first.items():
+        if value == critic_values(1):
+            critic_name1.append(key)
     #return critic name in a well formatted list
-
+    return critic_name1
 #give starting intro
 
 #while loop that is infinite
