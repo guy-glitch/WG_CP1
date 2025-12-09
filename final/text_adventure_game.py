@@ -2,8 +2,8 @@
 #import random as r
 import random as r
 import time as t
-#Create Remy's stat dictionary with three stats Star rating: 4, Cooking Sense: 5%, Control: 75%
-remy = {"Star rating": 4, "Cooking sense": 5, "Control": 75, "trust":0}
+#Create Remy's stat dictionary with three stats : 4, Cooking Sense: 5%, Control: 75%
+remy = {"Star rating": 4, "Cooking sense": 0.5, "Control": 75, "trust":0}
 #Last name dictionary of critic last names, correlated with the ingredient that name enjoys Tommato, Zucchhini, Mozzeralla, Baslil, Sausasge, Peperoncini, Swoup
 critic_last ={"Tommato": "Tomato", "Zuchhini":"Zuchini", "Mozzeralla":"Mozzarella", "Baslil":"Basil", "Sausasge":"Sausage", "Peperocnini":"Peperoncini", "Galcir":"Garlic"}
 #First name dictionary of critic first names correlated with the presentation wanted Circel, Zgiazg, Sritpe, Retow
@@ -14,6 +14,7 @@ presentation_options = ["Circle", "Zigzag", "Stripe", "Tower", "Arch"]
 head_critic = {"first name":"Carh", "last name":"LePineapp"}
 #variable trained = no
 trained = False
+entryhall_entry =  "first"
 #variable cooking_practice = no
 cooking_practice = False
  #create variable cooking pot = uncollected
@@ -47,10 +48,31 @@ def kitchen():
     #while entered == yes
     while entered == "yes":
         #if cooking pot is uncollected collect it and change stats
-
+        if cooking_pot == "uncollected":
+            use = input("Would you like to use the cooking pot")
+            if use == "yes":
+                remy("Cooking sense") += 1
+                cooking_pot = 0
+            else:
+                print("Okay")
         #if seasoning is uncollected collect it and change stats
-
-        #else nothing is done in this room
+        if seasoning == "uncollected":
+            pick_up = input("Would you like to use the seasoning")
+            if pick_up == "yes":
+                remy("Cooking sense") += 0.5
+                seasoning = 0
+        #give them an order
+        if practice_meal == "unmade":
+            practice_meal = 0
+            print("Archei Guodda the head chef wants you to make him a meal to prove your worth")
+            ingredients_practice = input("Do you want to but broccli, brussel sprouts, or gouda in the meal. ").lower().strip()
+            display_practice = input("Do you want to make an arch a circle or a tower. ").lower().strip()
+            if ingredients_practice == "gouda":
+                print("He likes the flavor, especially the gouda")
+            if display_practice == "arch":
+                print("Your use of the arch amazes him")
+        name = critics_name()
+        cooking(name)
 #create a function for moving around
 def moving(choice):
     if choice == "choice":
@@ -104,7 +126,7 @@ def cooking(critic_name):
             print("The critic liked the ingredeints star rating increased by 0.1")
             print(f"Your new star rating is {remy['Star rating']}")
         #check if the presentation correlated with the first name is used
-        if presentation == critic_first[critic_name]:
+        if presentation_choice == critic_first[critic_name]:
             #increase star rating by 0.1 and display the original and the new
              remy["Star rating"] += 0.1
              print(f"The critic liked the presentation star rating increased by {0.1*remy("Cooking sense")}")
@@ -155,7 +177,6 @@ def dining_room(delegated):
         print("Rows of neatly arranged tables fill the space, each one set with meticulous attention to detail, as if every folded napkin and perfectly placed fork were part of a choreography. Along the walls hang rich tapestries and framed paintings depicting Parisian life, giving the room an atmosphere equal parts sophistication and comfort.")
         t.wait(90)
         print("Though serene on the surface, the dining room pulses with its own energy. Laughter rises and falls like waves, servers glide between tables with practiced grace, and the savory aroma of freshly plated dishes drifts through the air. It’s a place where guests savor not only food but moments—where celebrations unfold, romances spark, and every plate carries the promise of Gusteau’s enduring magic.")
-
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -219,9 +240,15 @@ def apartment():
         t.wait(90)
         print("Despite its clutter, the apartment holds a quiet charm. It’s a place where ideas simmer just as much as sauces do, where a rat and a young chef once shared secrets, breakthroughs, and the occasional kitchen disaster. It may be small and perpetually messy, but within its four walls lives a sense of possibility—a reminder that greatness can come from the most unexpected corners of Paris.")
         #Set enter to yes
-
+        entered = "yes"
     #while entered == yes
-
+    while entered == "yes":
+        stay = input("Do you want to stay or leave")
+        if stay == "yes":
+            print("There is nothing to do here this is just where you sleep")
+            continue
+        else:
+            moving("choice")
 #Create the function for the street
 def street():
     #variable entered = no
@@ -234,17 +261,20 @@ def street():
         print("Cafés spill onto the sidewalks with small round tables, each one hosting quiet conversations, clinking cups, and the occasional burst of laughter. Bicycles rattle over uneven stones, delivery vans rumble past with sleepy determination, and the Seine’s gentle breeze carries hints of river mist and roasting chestnuts from nearby vendors.")
         t.wait(90)
         print("Though busy, the street has a charm all its own. It’s a place where stories intersect—tourists pausing in awe, locals navigating with effortless rhythm, and dreamers wandering with no destination except possibility. Under the soft glow of Parisian night, even a simple stroll feels like the beginning of something extraordinary.")
-
         #Set enter to yes
-
+        entered = "yes"
     #while entered == yes
-
-        #if they came in here to be congratulated
-
-            #give them a congratulated message for raising the star rating
-
-        #if they came because they dropped the star rating give them an angry message and send them out to be a server
-
+    while entered == "yes":
+        trash = input("Do you want to eat some trash y/n")
+        if trash == "y":
+            return "your dead"
+        else:
+            leave = input("Do you want to leave. y/n ").strip().lower()
+            if leave == "n":
+                print("Okay sorry but you need to get back to work. ")
+                kitchen()
+            else:
+                moving("choice")
 #Create the function for the pantry
 def pantry():
     #variable entered = no
@@ -258,17 +288,16 @@ def pantry():
         t.wait(90)
         print("Despite its stillness, the pantry hums with possibility. It’s a place where chefs pause to think, where recipes begin as whispers, and where Remy once found both temptation and inspiration among the neatly labeled treasures. In this quiet, ingredient-filled sanctuary, every great meal begins long before it reaches the heat of the kitchen.")
         #Set enter to yes
-
+        entered = "yes"
     #while entered == yes
-
+    while entered == "yes":
         #give them a list of the ingredients
-
-        #let them choose five ingredients
-
-        #get the length of the list and remove any that are above the five max.
-
-        #return the ingredients that they chose
-
+        print(f"These are the ingredeints in the pantry {pantry_ingredients}")
+        leave = input("Do you want to leave y/n ").strip()
+        if leave == "y":
+            moving("choice")
+        else:
+            pantry()
 #Create the function for the private dining room
 def private_dining():
     #variable entered = no
@@ -281,15 +310,13 @@ def private_dining():
         print("A single, impeccably set table dominates the center of the room, its white linen flawless and its silverware gleaming with almost intimidating precision. Plush high-backed chairs cradle their occupants in comfort, while framed sketches of culinary masterpieces line the walls like a gallery dedicated to gastronomic artistry.")
         t.wait(90)
         print("Though hushed and refined, the room holds a palpable tension—an invisible weight born from anticipation. Here, every dish is presented with reverence, every detail scrutinized, and every bite carries the power to elevate or unravel a chef’s career. In this intimate chamber of judgment, silence speaks louder than applause, and a single raised eyebrow can echo louder than the clamor of the entire kitchen.")
-
         #Set enter to yes
-
+        entered = "yes"
     #while entered == yes
-
+    while entered == "yes"
         #describe the reaction of the critic depending on how closely the thing aligns with their tastes
-
-        #its empty if there is not a critic order
-
+        print("The room is empty. ")
+        moving("choice")
 #Create the function for the rat's nest
 def rats_nest():
     #variable entered = no
@@ -303,15 +330,21 @@ def rats_nest():
         t.wait(90)
         print("Though hidden far from human eyes, the nest hums with vibrant energy—rats chattering in quick bursts, families sharing meals, and dreams simmering in the minds of those bold enough to imagine more. It’s a place of community, resourcefulness, and ambition, a reminder that even in the shadows, hope can thrive and greatness can begin in the unlikeliest of homes.")
         #Set enter to yes
-
+        entered = "y"
     #while entered == yes
-
+    while entered == "y":
         #if you were kicked out of the restaurant you die from poisoned food
-
+        if remy("Star rating") < 3:
+            print("You die from food poisoning")
+            quit
         #if else you are inviting them to return with you to the restaurant they come with you
-
+        elif remy("Star rating") > 4.5:
+            print("You invite them to come with you and they turn you down. ")
+            moving("choice")
         #else they talk with you and give you gross food
-
+        else:
+            print("They tell you about there normal life and give you gross food. ")
+            moving("choice")
 #Create the function for the entry hall
 def entry_hall():
     #variable entered = no
@@ -324,15 +357,16 @@ def entry_hall():
         print("Along the walls hang hooks cluttered with aprons, spare towels, and the occasional forgotten jacket left by a cook rushing into service. A bulletin board, peppered with handwritten notes, shift schedules, and half-faded reminders, adds a touch of organized chaos to the otherwise orderly passage.")
         t.wait(90)
         print("Though simple, the entry hall buzzes with anticipation. It’s the final quiet step before entering the storm: a place where chefs take a breath, adjust their sleeves, and prepare themselves for the heat, noise, and artistry beyond the swinging kitchen doors. In this small stretch of hallway, every service begins—not with a clang of pots, but with a moment of quiet resolve.")
-
         #Set enter to yes
-
+        entered = "y"
     #while entered == yes
-
+    while entered == "y":
         #if it is first time you entered the entry hall introduce the other cooks
-
+        if entryhall_entry == "first":
+            print("The head cooks name is Archie Guodda \n The sou chefs name is Jerry Lee \n The assistant chefs name is Estabon the Magnificent")
         #else nothing is done in this room
-
+        else:
+            moving("choice")
 #create the function that generates the critics name
 def critics_name():
     #critic name = []
@@ -353,7 +387,58 @@ def critics_name():
     #return critic name in a well formatted list
     return critic_name1
 #give starting intro
+print("The moon hung low over Paris, spilling silver light across the narrow apartment windows. Inside one of them, a single lamp glowed—dim, warm, and flickering like it wasn’t sure it wanted to stay turned on.
 
+Alfredo Linguini pushed open the door with a sigh heavy enough to knock it down. His new apartment wasn’t much: peeling wallpaper, a squeaky bed, and a refrigerator that made a mysterious buzzing noise every time he walked past it. Still… it was better than the alley.
+
+“Home,” he mumbled uncertainly, dropping his bag on the floor with a thud.
+
+Up in the ceiling vent, Remy perked his ears.
+
+The human was back.
+
+The clumsy one.
+
+Remy had slipped into this apartment earlier simply because it smelled like food—not good food, but food. A half-eaten baguette on the counter, a forgotten wedge of cheese, a few vegetables that had definitely seen better days. It was enough.
+
+But now the human was here again, dragging his feet and muttering to himself as he rummaged through the refrigerator.
+
+Remy crept closer, silent on the metal vent. The human pulled out a container, sniffed it, made a face, and put it back.
+
+“Ugh… maybe cereal,” he said, collapsing at the tiny kitchen table.
+
+Then it happened.
+
+The vent grill came loose.
+
+Just a little.
+Just enough.
+
+Remy slipped—tumbled—and landed on the table with an undignified thump right in front of Linguini’s cereal bowl.
+
+For a moment, neither moved.
+
+Remy froze, whiskers twitching.
+Linguini blinked. Once. Twice. Three times.
+
+“Oh no,” he whispered. “I’ve been here five minutes and it’s already infested!”
+
+Remy squeaked in offense. Infested? He was a culinary artist, thank you very much.
+
+Linguini jumped to his feet, then tripped over the chair he’d just stood up from, crashing to the floor. The bowl tipped, milk sloshed, and Remy dodged out of instinct, landing lightly on the edge of the table.
+
+They stared at each other again—this time at eye level.
+
+And in the quiet chaos of the tiny apartment, something strange hung in the air:
+
+Not fear.
+Not anger.
+
+Recognition.
+
+Like both of them knew—though neither could say why—that this odd, accidental meeting was the start of something big.
+
+If you want, I can continue the scene, make it funnier, more dramatic, or expand it into a full chapter!")
 #while loop that is infinite
 while True:
     #ask them if they want to go to work with Alfredo Linguini
