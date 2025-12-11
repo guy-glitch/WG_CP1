@@ -39,10 +39,7 @@ def kitchen():
     if entered == "no":
         #describe the room
         print("The kitchen at Gusteau's is a large, vibrant space designed to look like an authentic, high-end Parisian restaurant kitchen, blending functional industrial elements with rustic charm. It's constantly bustling with activity, noise, and steam. The floors are a mixture of tile and brick, and the walls are partially tiled, giving it a lived-in, professional feel.")
-        t.sleep(1)
-        print("The central visual appeal comes from the extensive use of gleaming copper cookware—pots and pans hang from racks or are stacked high, catching the warm, golden light cast by the overhead lamps and the numerous gas burners.")
-        t.sleep(1)
-        print("The atmosphere is further enhanced by piles of fresh, colorful vegetables and ingredients visible throughout the various preparation stations. It appears both chaotic and efficient, a true working kitchen that embodies the passion and energy of a demanding French culinary environment.")
+        t.sleep(10)
         #Set enter to yes
         enter = "yes"
     #while entered == yes
@@ -75,10 +72,11 @@ def kitchen():
         cooking(name)
 #create a function for moving around
 def moving(choice):
-    function_map = {"kitchen": kitchen(),"street":street(),"dining room":dining_room(),"office":office(),"pantry":pantry(),"private dining room":private_dining(),"rats nest":rats_nest(),"entry hall":entry_hall(),"apartment":apartment()}
+    function_map = {"kitchen": kitchen(),"street":street(),"dining room":dining_room("no"),"office":office(),"pantry":pantry(),"private dining room":private_dining(),"rats nest":rats_nest(),"entry hall":entry_hall(),"apartment":apartment()}
     if choice == "choice":
     #allow them to choose what room they want to go into
         room = input("Do you want to go to the kitchen, the dining room, the office, the pantry, the private dining room, the rats next, the street, the entry hall, or the apartment")
+        room = function_map(room)
     #check what room they want to go into and move them there
     else:
         room = choice
@@ -150,10 +148,7 @@ def office(reason):
     if entered == "no":
         #describe the room
         print("Tucked just off the bustling heart of Gusteau’s kitchen, the head cook’s office is a compact but authoritative space—part command center, part sanctuary from the constant clang of pots and the shouts of line cooks. The room is dimly lit by a single brass lamp that casts a warm glow across stacks of menus, delivery invoices, and half-scribbled recipe notes")
-        t.sleep(1)
-        print("A heavy wooden desk dominates the center, its surface polished by years of elbows, urgent planning, and culinary crises. On the wall hangs a framed portrait of Chef Gusteau, slightly askew, as if knocked crooked by the whirlwind energy of the kitchen outside. Shelves overflow with spice jars, culinary manuals, and well-worn notebooks full of experiments never intended for the public eye.")
-        t.sleep(1)
-        print("Despite its small size, the office radiates authority. It’s a place where decisions are made quickly and often loudly—a room where chefs argue, dream, and occasionally panic. Yet there’s also a strange warmth to it, a reminder that behind every great dish and every chaotic dinner rush is a human (or sometimes rat) striving to live up to the restaurant’s towering legacy.")
+        t.sleep(10)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -174,10 +169,7 @@ def dining_room(delegated):
     if entered == "no":
         #describe the room
         print("Just beyond the controlled chaos of Gusteau’s kitchen lies the dining room—a realm of elegance where the clang of pots fades into murmured conversations and the soft clink of cutlery. Warm golden lighting spills from ornate chandeliers, casting a gentle glow over crisp white tablecloths and polished glassware that glitters like tiny stars.")
-        t.sleep(1)
-        print("Rows of neatly arranged tables fill the space, each one set with meticulous attention to detail, as if every folded napkin and perfectly placed fork were part of a choreography. Along the walls hang rich tapestries and framed paintings depicting Parisian life, giving the room an atmosphere equal parts sophistication and comfort.")
-        t.sleep(1)
-        print("Though serene on the surface, the dining room pulses with its own energy. Laughter rises and falls like waves, servers glide between tables with practiced grace, and the savory aroma of freshly plated dishes drifts through the air. It’s a place where guests savor not only food but moments—where celebrations unfold, romances spark, and every plate carries the promise of Gusteau’s enduring magic.")
+        t.sleep(10)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -236,10 +228,7 @@ def apartment():
     if entered == "no":
         #describe the room
         print("Perched above the glowing streets of Paris, the apartment is a charming but undeniably cramped hideaway—a patchwork of mismatched furniture, thrift-store treasures, and the lingering scent of burnt toast. The dim light from a single window spills across the room, illuminating dust motes that float lazily in the air like they have nowhere else to be.")
-        t.sleep(1)
-        print("A battered sofa sits lopsided in the corner, its cushions worn from nights spent collapsing after long shifts at Gusteau’s. Nearby, a tiny kitchenette fights for space against stacks of dirty dishes, half-finished attempts at cooking, and an enthusiastic but chaotic assortment of pots and pans clearly used by someone still learning their way around a stove.")
-        t.sleep(1)
-        print("Despite its clutter, the apartment holds a quiet charm. It’s a place where ideas simmer just as much as sauces do, where a rat and a young chef once shared secrets, breakthroughs, and the occasional kitchen disaster. It may be small and perpetually messy, but within its four walls lives a sense of possibility—a reminder that greatness can come from the most unexpected corners of Paris.")
+        t.sleep(10)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -258,10 +247,7 @@ def street():
     if entered == "no":
         #describe the room
         print("Just outside the warm glow of Gusteau’s windows, the Parisian street stretches like a ribbon of motion and murmurs—a place where the aroma of fresh bread mingles with the distant hum of traffic. Streetlamps cast soft pools of amber light across the cobblestones, giving the night an almost theatrical glow as shadows dance between passing pedestrians.")
-        t.sleep(1)
-        print("Cafés spill onto the sidewalks with small round tables, each one hosting quiet conversations, clinking cups, and the occasional burst of laughter. Bicycles rattle over uneven stones, delivery vans rumble past with sleepy determination, and the Seine’s gentle breeze carries hints of river mist and roasting chestnuts from nearby vendors.")
-        t.sleep(1)
-        print("Though busy, the street has a charm all its own. It’s a place where stories intersect—tourists pausing in awe, locals navigating with effortless rhythm, and dreamers wandering with no destination except possibility. Under the soft glow of Parisian night, even a simple stroll feels like the beginning of something extraordinary.")
+        t.sleep(10)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -284,10 +270,7 @@ def pantry():
     if entered == "no":
         #describe the room
         print("Tucked just beyond the main bustle of Gusteau’s kitchen, the pantry is a treasure trove of aromas and carefully hoarded ingredients—a quiet haven where the noise of sizzling pans fades into the soft rustle of paper sacks and the gentle clink of glass jars. Warm, ambient light spills across rows of shelves stacked high with spices, grains, and preserved delicacies from every corner of France.")
-        t.sleep(1)
-        print("Wooden crates filled with fresh produce sit neatly along the floor—tomatoes still carrying the scent of the morning market, onions braided together like rustic garlands, and herbs tied in bundles that perfume the entire room. Glass jars line the walls in perfect order, each one a tiny universe of colors: golden saffron, deep paprika, fragrant lavender, and countless others sleeping their turn to transform a dish.")
-        t.sleep(1)
-        print("Despite its stillness, the pantry hums with possibility. It’s a place where chefs pause to think, where recipes begin as whispers, and where Remy once found both temptation and inspiration among the neatly labeled treasures. In this quiet, ingredient-filled sanctuary, every great meal begins long before it reaches the heat of the kitchen.")
+        t.sleep(10)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -307,10 +290,7 @@ def private_dining():
     if entered == "no":
         #describe the room
         print("Hidden behind a discreet velvet curtain, the private dining room is a world apart from the lively hum of Gusteau’s main floor—a sanctuary of quiet elegance reserved for those whose opinions can shape the fate of an entire restaurant. Soft, amber light from ornate sconces glows against deep burgundy walls, casting long, thoughtful shadows that seem to whisper of countless judgments made within these confines.")
-        t.sleep(1)
-        print("A single, impeccably set table dominates the center of the room, its white linen flawless and its silverware gleaming with almost intimidating precision. Plush high-backed chairs cradle their occupants in comfort, while framed sketches of culinary masterpieces line the walls like a gallery dedicated to gastronomic artistry.")
-        t.sleep(1)
-        print("Though hushed and refined, the room holds a palpable tension—an invisible weight born from anticipation. Here, every dish is presented with reverence, every detail scrutinized, and every bite carries the power to elevate or unravel a chef’s career. In this intimate chamber of judgment, silence speaks louder than applause, and a single raised eyebrow can echo louder than the clamor of the entire kitchen.")
+        t.sleep(10)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -326,10 +306,7 @@ def rats_nest():
     if entered == "no":
         #describe the room
         print("Deep beneath the bustling world of Paris, the rats’ nest is a hidden labyrinth of woven scraps, scavenged trinkets, and cozy nooks—a lively underground community where the glow of lanterns bounces off stone walls and the scent of foraged food lingers in the air. Despite its humble materials, the space feels warm and alive, shaped by countless tiny paws working in harmony.")
-        t.sleep(1)
-        print("Tunnels twist and wind into chambers lined with soft fabric shreds, mismatched buttons, and carefully arranged treasures collected from the human world above. Bits of string, bottle caps, and colorful paper are repurposed with surprising creativity, turning everyday refuse into furniture, tools, and decorations that sparkle in the dim light.")
-        t.sleep(1)
-        print("Though hidden far from human eyes, the nest hums with vibrant energy—rats chattering in quick bursts, families sharing meals, and dreams simmering in the minds of those bold enough to imagine more. It’s a place of community, resourcefulness, and ambition, a reminder that even in the shadows, hope can thrive and greatness can begin in the unlikeliest of homes.")
+        t.sleep(10)
         #Set enter to yes
         entered = "y"
     #while entered == yes
@@ -354,10 +331,7 @@ def entry_hall():
     if entered == "no":
         #describe the room
         print("Just before the whirlwind energy of Gusteau’s kitchen lies the entry hall—a narrow but purposeful corridor where the aromas of simmering sauces drift out to greet anyone passing through. Soft, muted lighting reflects off tiled floors worn smooth by decades of hurried footsteps, giving the space an understated warmth despite its constant traffic.")
-        t.sleep(1)
-        print("Along the walls hang hooks cluttered with aprons, spare towels, and the occasional forgotten jacket left by a cook rushing into service. A bulletin board, peppered with handwritten notes, shift schedules, and half-faded reminders, adds a touch of organized chaos to the otherwise orderly passage.")
-        t.sleep(1)
-        print("Though simple, the entry hall buzzes with anticipation. It’s the final quiet step before entering the storm: a place where chefs take a breath, adjust their sleeves, and prepare themselves for the heat, noise, and artistry beyond the swinging kitchen doors. In this small stretch of hallway, every service begins—not with a clang of pots, but with a moment of quiet resolve.")
+        t.sleep(10)
         #Set enter to yes
         entered = "y"
     if entryhall_entry == "first":
@@ -392,12 +366,12 @@ def critics_name():
     return critic_name1
 #give starting intro
 print("\033[33mThe moon hung low over Paris, spilling silver light across the narrow apartment windows. Inside one of them, a single lamp glowed—dim, warm, and flickering like it wasn’t sure it wanted to stay turned on. \n Alfredo Linguini pushed open the door with a sigh heavy enough to knock it down. His new apartment wasn’t much: peeling wallpaper, a squeaky bed, and a refrigerator that made a mysterious buzzing noise every time he walked past it. Still… it was better than the alley. \n Home, he mumbled uncertainly, dropping his bag on the floor with a thud.")
-t.sleep(1)
+t.sleep(10)
 print("Up in the ceiling vent, Remy perked his ears.\nThe human was back.\nThe clumsy one.\nRemy had slipped into this apartment earlier simply because it smelled like food—not good food, but food. A half-eaten baguette on the counter, a forgotten wedge of cheese, a few vegetables that had definitely seen better days. It was enough.\nBut now the human was here again, dragging his feet and muttering to himself as he rummaged through the refrigerator.\nRemy crept closer, silent on the metal vent. The human pulled out a container, sniffed it, made a face, and put it back.\n“Ugh… maybe cereal,” he said, collapsing at the tiny kitchen table.")
-t.sleep(1)
+t.sleep(10)
 print("Then it happened.\nThe vent grill came loose.\nJust a little.\nJust enough.\nRemy slipped—tumbled—and landed on the table with an undignified thump right in front of Linguini’s cereal bowl.\nFor a moment, neither moved.\nRemy froze, whiskers twitching.\nLinguini blinked. Once. Twice. Three times.\n“Oh no,” he whispered. I’ve been here five minutes and it’s already infested!\nRemy squeaked in offense. Infested? He was a culinary artist, thank you very much.\nLinguini jumped to his feet, then tripped over the chair he’d just stood up from, crashing to the floor. The bowl tipped, milk sloshed, and Remy dodged out of instinct, landing lightly on the edge of the table.") 
-t.sleep(1)
-print("They stared at each other again—this time at eye level.\nAnd in the quiet chaos of the tiny apartment, something strange hung in the air:\nNot fear.\nNot anger.\nRecognition.\nLike both of them knew—though neither could say why—that this odd, accidental meeting was the start of something big.\nIf you want, I can continue the scene, make it funnier, more dramatic, or expand it into a full chapter!")
+t.sleep(10)
+print("They stared at each other again—this time at eye level.\nAnd in the quiet chaos of the tiny apartment, something strange hung in the air:\nNot fear.\nNot anger.\nRecognition.")
 #while loop that is infinite
 while True:
     #ask them if they want to go to work with Alfredo Linguini
