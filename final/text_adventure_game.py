@@ -87,7 +87,7 @@ def moving(choice):
         elif room == "dining room":
             dining_room()
         elif room == "office":
-            office()
+            office("none")
         elif room == "pantry":
             pantry()
         elif room == "private dining room":
@@ -138,7 +138,7 @@ def cooking():
         presentation_choice = input("What presentationdo you want to use.")
         #using there control stat as a basis give them a certain percent chance of getting caught
         caught = r.randint(1,101)
-        if caught > remy("Control"):
+        if caught > remy["Control"]:
             moving("rats nest")
             return "You were caught"
         #check if the ingredients correlated with the name is in the meal
@@ -151,7 +151,7 @@ def cooking():
         if presentation_choice == critic_first[critic_name[0]]:
             #increase star rating by 0.1 and display the original and the new
              remy["Star rating"] += 0.1
-             print(f"The critic liked the presentation star rating increased by {0.1*remy("Cooking sense")}")
+             print(f"The critic liked the presentation star rating increased by {0.1*remy["Cooking sense"]}")
              print(f"Your new star rating is {remy['Star rating']}")
     #else if they choose not to cook for the critic
     elif cooking == "no":
@@ -191,6 +191,9 @@ def office(reason):
         #if they came because they dropped the star rating give them an angry message and send them out to be a server
         if reason == "delegated":
             dining_room("yes")
+        if reason == "none":
+            print("Why are you in here get out!")
+            moving("choice")
 #Create the function for the dining room with argument delegated
 def dining_room(delegated):
     #variable entered = no
