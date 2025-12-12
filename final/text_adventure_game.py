@@ -109,7 +109,7 @@ def cooking():
     print("To cook select the ingredients you want to add to your meal, then select the format")
     #display the order name based on function critic name
     critic_name = critics_name()
-    print(f"{critic_name}")
+    print(f"The critics name is {critic_name[0], critic_name[1]}")
     #let them choose if they want to cook for the critic
     cooking = input("Do you want to cook for the critic")
     #if they choose to cook for the critic:
@@ -134,20 +134,21 @@ def cooking():
                 ingredient = input("What ingredeint do you want to use?").strip()
                 ingredients.append(ingredient)
         #let them choose the presentation they want to use form a set list
-        print(presentation)
+        print(presentation_options)
         presentation_choice = input("What presentationdo you want to use.")
         #using there control stat as a basis give them a certain percent chance of getting caught
         caught = r.randint(1,101)
         if caught > remy("Control"):
+            moving("rats nest")
             return "You were caught"
         #check if the ingredients correlated with the name is in the meal
-        if critic_last[critic_name] in ingredients:
+        if critic_last[critic_name[1]] in ingredients:
             #increase star rating by 0.1 and display the original and the new
             remy["Star rating"] += 0.1
             print("The critic liked the ingredeints star rating increased by 0.1")
             print(f"Your new star rating is {remy['Star rating']}")
         #check if the presentation correlated with the first name is used
-        if presentation_choice == critic_first[critic_name]:
+        if presentation_choice == critic_first[critic_name[0]]:
             #increase star rating by 0.1 and display the original and the new
              remy["Star rating"] += 0.1
              print(f"The critic liked the presentation star rating increased by {0.1*remy("Cooking sense")}")
@@ -158,6 +159,13 @@ def cooking():
         remy["Star rating"] -= 0.5
         print("The critic is mad you didn't cook for them star rating decrease by 0.5")
         print(f"Your new star rating is {remy['Star rating']}")
+        if remy["Star rating"] < 3:
+            print("You have been fired from Gusteau's")
+            moving("rats nest")
+    #ask them if they want to keep cooking
+        keep_cooking = input("Do you want to keep cooking y/n ")
+        if keep_cooking == "n":
+            moving("choice")
     #else:
     else:
         #  rerun the function
@@ -373,11 +381,10 @@ def entry_hall():
 def critics_name():
     #critic name = []
     critic_name1 = []
-    critic_values = []
     #get a random value from critics first name dictionary
-    critic_values.append(r.choice(critic_first_name))
+    critic_name1.append(r.choice(critic_first_name))
     #get a random value from the critic last name dictionary
-    critic_values.append(r.choice(critic_last_name))
+    critic_name1.append(r.choice(critic_last_name))
     #get the key that corresponds with the value of the first name and add to the list critic name
     #return critic name in a well formatted list
     return critic_name1
