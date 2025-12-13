@@ -42,7 +42,7 @@ def kitchen():
     if entered == "no":
         #describe the room
         print("The kitchen at Gusteau's is a large, vibrant space designed to look like an authentic, high-end Parisian restaurant kitchen, blending functional industrial elements with rustic charm. It's constantly bustling with activity, noise, and steam. The floors are a mixture of tile and brick, and the walls are partially tiled, giving it a lived-in, professional feel.")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -85,7 +85,7 @@ def moving(choice):
         elif room == "street":
             street()
         elif room == "dining room":
-            dining_room()
+            dining_room("no")
         elif room == "office":
             office("none")
         elif room == "pantry":
@@ -159,9 +159,10 @@ def cooking():
         remy["Star rating"] -= 0.5
         print("The critic is mad you didn't cook for them star rating decrease by 0.5")
         print(f"Your new star rating is {remy['Star rating']}")
+        if remy["Star rating"] == 3:
+            dining_room("delegated")
         if remy["Star rating"] < 3:
-            print("You have been fired from Gusteau's")
-            moving("rats nest")
+            rats_nest()
     #ask them if they want to keep cooking
         keep_cooking = input("Do you want to keep cooking y/n ")
         if keep_cooking == "n":
@@ -178,7 +179,7 @@ def office(reason):
     if entered == "no":
         #describe the room
         print("Tucked just off the bustling heart of Gusteau’s kitchen, the head cook’s office is a compact but authoritative space—part command center, part sanctuary from the constant clang of pots and the shouts of line cooks. The room is dimly lit by a single brass lamp that casts a warm glow across stacks of menus, delivery invoices, and half-scribbled recipe notes")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -202,26 +203,26 @@ def dining_room(delegated):
     if entered == "no":
         #describe the room
         print("Just beyond the controlled chaos of Gusteau’s kitchen lies the dining room—a realm of elegance where the clang of pots fades into murmured conversations and the soft clink of cutlery. Warm golden lighting spills from ornate chandeliers, casting a gentle glow over crisp white tablecloths and polished glassware that glitters like tiny stars.")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
     while entered == "yes":
         #if delegated is no
-        if delegated == "no ":
+        if delegated == "no":
             #let them inspect the room nothing else happens, they do have the choice to ask what their customers are liking their food
-            wonder_opinion = input("Do you want to ask your customers if they like the food. ")
+            wonder_opinion = input("Do you want to ask your customers if they like the food. ").strip()
             if wonder_opinion == "yes":
                 if remy["Star rating"] < 4:
                     remy["Star rating"] += 0.1
                     print(f"The customers think it was better than the star rating, star rating increased by 0.1 new star rating is {remy['Star rating']}")
-                    moving("choice")
+                moving("choice")
         #else
         else:
             ##give a list of random things that could be in there path.
             directions = ["Shadowy circle","Wavering shape","small space","moving shadows close to the ground", "empty space", "towering arch"]
             #give them training information, then run through the training
-            
+            print("To build trust with Remy you need to move him through the shadows without letting him get hurt. YOu can move backwards, forwards, left or right. You can also stay where you are. Your trust will increase and at the end your control will increase by the amount of trust you built.")
             #use a loop to let them move 10 times
             for i in range(10):
                 ##set each of the variables to one of the option from the directions
@@ -261,7 +262,7 @@ def apartment():
     if entered == "no":
         #describe the room
         print("Perched above the glowing streets of Paris, the apartment is a charming but undeniably cramped hideaway—a patchwork of mismatched furniture, thrift-store treasures, and the lingering scent of burnt toast. The dim light from a single window spills across the room, illuminating dust motes that float lazily in the air like they have nowhere else to be.")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -280,7 +281,7 @@ def street():
     if entered == "no":
         #describe the room
         print("Just outside the warm glow of Gusteau’s windows, the Parisian street stretches like a ribbon of motion and murmurs—a place where the aroma of fresh bread mingles with the distant hum of traffic. Streetlamps cast soft pools of amber light across the cobblestones, giving the night an almost theatrical glow as shadows dance between passing pedestrians.")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -304,7 +305,7 @@ def pantry():
     if entered == "no":
         #describe the room
         print("Tucked just beyond the main bustle of Gusteau’s kitchen, the pantry is a treasure trove of aromas and carefully hoarded ingredients—a quiet haven where the noise of sizzling pans fades into the soft rustle of paper sacks and the gentle clink of glass jars. Warm, ambient light spills across rows of shelves stacked high with spices, grains, and preserved delicacies from every corner of France.")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -324,7 +325,7 @@ def private_dining():
     if entered == "no":
         #describe the room
         print("Hidden behind a discreet velvet curtain, the private dining room is a world apart from the lively hum of Gusteau’s main floor—a sanctuary of quiet elegance reserved for those whose opinions can shape the fate of an entire restaurant. Soft, amber light from ornate sconces glows against deep burgundy walls, casting long, thoughtful shadows that seem to whisper of countless judgments made within these confines.")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "yes"
     #while entered == yes
@@ -340,7 +341,7 @@ def rats_nest():
     if entered == "no":
         #describe the room
         print("Deep beneath the bustling world of Paris, the rats’ nest is a hidden labyrinth of woven scraps, scavenged trinkets, and cozy nooks—a lively underground community where the glow of lanterns bounces off stone walls and the scent of foraged food lingers in the air. Despite its humble materials, the space feels warm and alive, shaped by countless tiny paws working in harmony.")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "y"
     #while entered == yes
@@ -365,7 +366,7 @@ def entry_hall():
     if entered == "no":
         #describe the room
         print("Just before the whirlwind energy of Gusteau’s kitchen lies the entry hall—a narrow but purposeful corridor where the aromas of simmering sauces drift out to greet anyone passing through. Soft, muted lighting reflects off tiled floors worn smooth by decades of hurried footsteps, giving the space an understated warmth despite its constant traffic.")
-        t.sleep(1)
+        t.sleep(5)
         #Set enter to yes
         entered = "y"
     if entryhall_entry == "first":
@@ -393,11 +394,11 @@ def critics_name():
     return critic_name1
 #give starting intro
 print("\033[33mThe moon hung low over Paris, spilling silver light across the narrow apartment windows. Inside one of them, a single lamp glowed—dim, warm, and flickering like it wasn’t sure it wanted to stay turned on. \n Alfredo Linguini pushed open the door with a sigh heavy enough to knock it down. His new apartment wasn’t much: peeling wallpaper, a squeaky bed, and a refrigerator that made a mysterious buzzing noise every time he walked past it. Still… it was better than the alley. \n Home, he mumbled uncertainly, dropping his bag on the floor with a thud.")
-t.sleep(1)
+t.sleep(5)
 print("Up in the ceiling vent, Remy perked his ears.\nThe human was back.\nThe clumsy one.\nRemy had slipped into this apartment earlier simply because it smelled like food—not good food, but food. A half-eaten baguette on the counter, a forgotten wedge of cheese, a few vegetables that had definitely seen better days. It was enough.\nBut now the human was here again, dragging his feet and muttering to himself as he rummaged through the refrigerator.\nRemy crept closer, silent on the metal vent. The human pulled out a container, sniffed it, made a face, and put it back.\n“Ugh… maybe cereal,” he said, collapsing at the tiny kitchen table.")
-t.sleep(1)
+t.sleep(5)
 print("Then it happened.\nThe vent grill came loose.\nJust a little.\nJust enough.\nRemy slipped—tumbled—and landed on the table with an undignified thump right in front of Linguini’s cereal bowl.\nFor a moment, neither moved.\nRemy froze, whiskers twitching.\nLinguini blinked. Once. Twice. Three times.\n“Oh no,” he whispered. I’ve been here five minutes and it’s already infested!\nRemy squeaked in offense. Infested? He was a culinary artist, thank you very much.\nLinguini jumped to his feet, then tripped over the chair he’d just stood up from, crashing to the floor. The bowl tipped, milk sloshed, and Remy dodged out of instinct, landing lightly on the edge of the table.") 
-t.sleep(1)
+t.sleep(5)
 print("They stared at each other again—this time at eye level.\nAnd in the quiet chaos of the tiny apartment, something strange hung in the air:\nNot fear.\nNot anger.\nRecognition.")
 #while loop that is infinite
 while True:
