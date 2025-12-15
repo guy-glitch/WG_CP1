@@ -49,7 +49,7 @@ def kitchen():
     while entered == "yes":
         #if cooking pot is uncollected collect it and change stats
         if cooking_pot == "uncollected":
-            use = input("Do I want to use the cooking pot? y/n ")
+            use = input("Do I want to use the cooking pot it will raise your cooking sense? y/n ")
             if use == "y":
                 remy["Cooking sense"] += 1
                 cooking_pot = 0
@@ -57,7 +57,7 @@ def kitchen():
                 print("Okay")
                 t.sleep(5)
         if seasoning == "uncollected":
-            pick_up = input("Do I want to use the seasoning? y/n ")
+            pick_up = input("Do I want to use the seasoning it will raise your cooking sense? y/n ")
             if pick_up == "y":
                 remy["Cooking sense"] += 0.5
                 seasoning = 0
@@ -67,7 +67,7 @@ def kitchen():
         #give them an order
         if practice_meal == "unmade":
             practice_meal = 0
-            print("Archie Guodda, the head chef, wants you to make him a meal to prove your worth")
+            print("Archie Guodda, the head chef, wants you to make him a meal to prove your worth pay attention to his name and the name of the ingredients and presentation (｡•̀ᴗ-)")
             t.sleep(5)
             ingredients_practice = input("Do I want to put broccoli, Brussel sprouts, or Gouda in the meal? ").lower().strip()
             display_practice = input("Do I want to make an arch, a circle or a tower? ").lower().strip()
@@ -96,33 +96,13 @@ def moving(choice):
         elif room == "private dining room":
             private_dining()
         elif room == "rats nest":
-            rats_nest()
+            rats_nest("yes")
         elif room == "entry hall":
             entry_hall()
         elif room == "apartment":
             apartment()
         else:
             moving("choice")
-    #check what room they want to go into and move them there
-    else:
-        if choice == "kitchen":
-            kitchen()
-        elif choice == "street":
-            street()
-        elif choice == "dining room":
-            dining_room("no")
-        elif choice == "office":
-            office("none")
-        elif choice == "pantry":
-            pantry()
-        elif choice == "private dining room":
-            private_dining()
-        elif choice == "rats nest":
-            rats_nest()
-        elif choice == "entry hall":
-            entry_hall()
-        elif choice == "apartment":
-            apartment()
 #create the function for cooking
 def cooking():
     #display the cooking instructions
@@ -133,7 +113,7 @@ def cooking():
     print(f"The critics name is {critic_name[0]} {critic_name[1]}")
     t.sleep(5)
     #let them choose if they want to cook for the critic
-    cooking = input("Do I want to cook for the critic? y/n ")
+    cook = input("Do I want to cook for the critic? y/n ")
     #if they choose to cook for the critic:
     if cooking == "y":
         ingredients = []
@@ -162,7 +142,9 @@ def cooking():
         #using there control stat as a basis give them a certain percent chance of getting caught
         caught = r.randint(1,101)
         if caught > remy["Control"]:
-            rats_nest()
+            print("The Jerry Lee caught you in Alfreddo's Hat, you return to the rats nest. Have Fun!")
+            t.sleep(10)
+            rats_nest("00")
             return "You were caught"
         #check if the ingredients correlated with the name is in the meal
         if critic_last[critic_name[1]] in ingredients:
@@ -179,7 +161,14 @@ def cooking():
              t.sleep(5)             
              print(f"Your new star rating is {remy['Star rating']}")
              t.sleep(5)
-    elif cooking == "n":
+        keep = input("Do you want to keep cooking. y/n ").strip()
+        if keep == "y":
+            cooking()
+        elif keep == "n":
+            moving("choice")
+        else:
+            cooking()
+    elif cook == "n":
         #decrease star rating by .2
         remy["Star rating"] -= 0.2
         print("The critic is mad you didn't cook for them star rating decrease by 0.5")
@@ -188,14 +177,14 @@ def cooking():
         t.sleep(5)
         dining_room("delegated")
         if remy["Star rating"] < 3:
-            rats_nest()
+            rats_nest("yes")
         else:
             keep_cooking = input("Do I want to keep cooking? y/n ").strip().lower()
             if keep_cooking == "n":
                 moving("choice")
     #else:
     else:
-        #  rerun the function
+        #rerun the function
         cooking()
 #Create the function for the office
 def office(reason):
@@ -379,7 +368,7 @@ def private_dining():
         t.sleep(5)
         moving("choice")
 #Create the function for the rat's nest
-def rats_nest():
+def rats_nest(lost):
     #variable entered = no
     entered = "no"
     #if variable entered == no
@@ -406,6 +395,9 @@ def rats_nest():
             print("They tell you about their normal life and give you gross food. ")
             t.sleep(5)
             moving("choice")
+        if lost != "yes":
+            print("You die of poisoned food")
+            return "lost"
 #Create the function for the entry hall
 def entry_hall():
     #variable entered = no
@@ -441,20 +433,15 @@ def critics_name():
     #get the key that corresponds with the value of the first name and add to the list critic name
     #return critic name in a well formatted list
     return critic_name1
-play = input("Do you want to play the game y/n ").strip().lower()
+play = input("\033[33mDo you want to play the game y/n ").strip().lower()
 if play == "y":
     #give starting intro
-    print("The moon hung low over Paris, spilling silver light across the narrow apartment windows. Inside one of them, a single lamp glowed—dim, warm, and flickering like it wasn’t sure it wanted to stay turned on. \n Alfredo Linguini pushed open the door with a sigh heavy enough to knock it down. His new apartment wasn’t much: peeling wallpaper, a squeaky bed, and a refrigerator that made a mysterious buzzing noise every time he walked past it. Still… it was better than the alley. \n Home, he mumbled uncertainly, dropping his bag on the floor with a thud.")
-    t.sleep(5)
-    print("Up in the ceiling vent, Remy perked his ears.\nThe human was back.\nThe clumsy one.\nRemy had slipped into this apartment earlier simply because it smelled like food—not good food, but food. A half-eaten baguette on the counter, a forgotten wedge of cheese, a few vegetables that had definitely seen better days. It was enough.\nBut now the human was here again, dragging his feet and muttering to himself as he rummaged through the refrigerator.\nRemy crept closer, silent on the metal vent. The human pulled out a container, sniffed it, made a face, and put it back.\n“Ugh… maybe cereal,” he said, collapsing at the tiny kitchen table.")
-    t.sleep(5)
-    print("Then it happened.\nThe vent grill came loose.\nJust a little.\nJust enough.\nRemy slipped—tumbled—and landed on the table with an undignified thump right in front of Linguini’s cereal bowl.\nFor a moment, neither moved.\nRemy froze, whiskers twitching.\nLinguini blinked. Once. Twice. Three times.\n“Oh no,” he whispered. I’ve been here five minutes and it’s already infested!\nRemy squeaked in offense. Infested? He was a culinary artist, thank you very much.\nLinguini jumped to his feet, then tripped over the chair he’d just stood up from, crashing to the floor. The bowl tipped, milk sloshed, and Remy dodged out of instinct, landing lightly on the edge of the table.") 
-    t.sleep(5)
-    print("They stared at each other again—this time at eye level.\nAnd in the quiet chaos of the tiny apartment, something strange hung in the air:\nNot fear.\nNot anger.\nRecognition.")
+    print("You are Remy the Rat your only dream is to be a chef.")
+    t.sleep(2)
     #while loop that is infinite
     while True:
         #ask them if they want to go to work with Alfredo Linguini
-        work = input("\033[33mDo you want to work with Alfredo Linguini, and become a chef y/n ").strip().lower()
+        work = input("Do you want to work with Alfredo Linguini, and become a chef y/n ").strip().lower()
         #if they don't want to go to work
         if work == "n":
             #allow them to choose whether or not they want to return to the rat's nest or wander the streets allowing
@@ -484,7 +471,10 @@ if play == "y":
                 continue
         #if else they do want to go to work with him
         elif work == "y":
+            print("You want to help Alfreddo Linguini bring the restrounts star rating back up and keep this job, when cooking look at the name of the chef for a hint.")
+            t.sleep(2)
             #send them to work with him
             entry_hall()
 else:
     print("Okay bye!")
+print("Okay, bye!")
