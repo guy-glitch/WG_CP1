@@ -476,5 +476,5 @@ if play == "y":
             #send them to work with him
             entry_hall()
 else:
-    print("Okay bye!")
+    print("")
 print("Okay, bye!")
